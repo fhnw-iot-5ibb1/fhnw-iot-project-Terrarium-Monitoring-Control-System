@@ -30,7 +30,7 @@ Source code, committed to (this) project repo.
 4) Issues you faced, how you solved them.
 
 ### Live demo
-Working end-to-end prototype, "device to cloud", 10' presentation and demo.
+Working end-to-end prototype, "device to cloud", part of your 10' presentation.
 1) Sensor input on a IoT device triggers an event.
 2) The event or measurement shows up online, in an app or Web client.
 3) The event triggers actuator output on the same or a separate IoT device.
