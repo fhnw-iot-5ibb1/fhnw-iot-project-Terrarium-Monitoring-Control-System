@@ -14,13 +14,13 @@
 ## Deliverables
 
 ### Source code
-* Source code, commited to (this) project repo.
+Source code, commited to (this) project repo.
 1) Embedded code / microcontroller firmware.
 2) Glue Code used on the gateway or "in the cloud".
 3) App or Web UI code, or IoT platform setup steps.
 
 ### Presentation
-4-page PDF, commited to (this) project repo.
+4-slide presentation, PDF format, commited to (this) project repo.
 1) Use-case.
 2) Reference model.
 3) Short, one slide interface docs.
