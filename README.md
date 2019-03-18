@@ -35,4 +35,4 @@ Working end-to-end prototype, "device to cloud".
 <sup>*</sup>) Same or separate device, details are up to you.
 
 ### Submitting results
-* [Commit and push](#git) local changes to your repository.
+* Commit and push local changes to your repository.
