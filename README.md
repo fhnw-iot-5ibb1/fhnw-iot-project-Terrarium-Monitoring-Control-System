@@ -21,12 +21,12 @@ This project is part of the [IoT Engineering](../../../fhnw-iot) course.
 The following deliverables are mandatory.
 
 ### Source code
-Source code, committed to (this) project repo.
+Source code, Arduino C, JS or Python, committed to (this) project repo.
 
-[Arduino/MY_TEAM_PROJECT_FILE.ino](Arduino/MY_TEAM_PROJECT_FILE.ino)
-[Nodejs/MY_TEAM_PROJECT_FILE.js](Nodejs/MY_TEAM_PROJECT_FILE.js)
-[Python/MY_TEAM_PROJECT_FILE.py](Nodejs/MY_TEAM_PROJECT_FILE.py)
-(adapt as required)
+* [Arduino/MY_TEAM_PROJECT_FILE.ino](Arduino/MY_TEAM_PROJECT_FILE.ino)
+* [Nodejs/MY_TEAM_PROJECT_FILE.js](Nodejs/MY_TEAM_PROJECT_FILE.js)
+* [Python/MY_TEAM_PROJECT_FILE.py](Nodejs/MY_TEAM_PROJECT_FILE.py)
+* ... (adapt as required)
 
 1) Embedded code / microcontroller firmware.
 2) Glue Code used on the gateway or "in the cloud".
