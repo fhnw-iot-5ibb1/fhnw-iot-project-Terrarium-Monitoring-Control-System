@@ -32,10 +32,8 @@ Source code, committed to (this) project repo.
 ### Live Demo
 Working end-to-end prototype, "device to cloud", 10' presentation and demo.
 1) Sensor input on a IoT device triggers an event.
-2) The event or measurement shows up online (app or Web).
-3) The event triggers actuator output on a IoT device<sup>*</sup>.
-
-<sup>*</sup>) Same or separate device, details are up to you.
+2) The event or measurement shows up online (app or Web client).
+3) The event triggers actuator output on (same or separate) IoT device.
 
 ## Submission deadline
 Commit and push to (this) project repo before Demo Day 03.06.2019, 00:00.
