@@ -20,17 +20,19 @@
 3) App or Web UI code, or IoT platform setup steps.
 
 ### Presentation
-* 4-page PDF, commited to (this) project repo.
+4-page PDF, commited to (this) project repo.
 1) Use-case.
 2) Reference model.
 3) Short, one slide interface docs.
 4) Issues you faced, how you solved them.
 
 ### Live Demo
-* Working end-to-end prototype, "device to cloud".
+Working end-to-end prototype, "device to cloud".
 1) Sensor input on a IoT device triggers an event.
 2) The event / measurement shows up online.
-3) The event triggers actuator output*.
+3) The event triggers actuator output<sup>*</sup>.
+
+<sup>*</sup>) Same or separate device, details are up to you.
 
 ### Submitting results
 * [Commit and push](#git) local changes to your repository.
