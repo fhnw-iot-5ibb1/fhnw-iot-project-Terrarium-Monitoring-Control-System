@@ -4,10 +4,6 @@
 > *Note: Do not work on this repository right away.*<br/>
 > *[Check existing forks to find the specific repository for your class.](../../network/members)*
 
-### Team members
-* MY_TEAM_PROJECT_PERSON_1
-* MY_TEAM_PROJECT_PERSON_2
-
 ## Introduction
 This project is part of the [IoT Engineering](../../../fhnw-iot) course.
 
@@ -16,6 +12,10 @@ This project is part of the [IoT Engineering](../../../fhnw-iot) course.
 * 10' presentation of the project at Demo Day.
 * Slides, source code and setup steps on GitHub.
 * Both team members are able to explain the project.
+
+### Team members
+* @MY_TEAM_PROJECT_GITHUB_USER_1, REAL_NAME_1
+* @MY_TEAM_PROJECT_GITHUB_USER_2, REAL_NAME_2
 
 ## Deliverables
 The following deliverables are mandatory.
@@ -28,6 +28,9 @@ Source code, committed to (this) project repo.
 
 ### Presentation
 4-slide presentation, PDF format, committed to (this) project repo.
+
+[MY_TEAM_PROJECT_PRESENTATION.pdf](MY_TEAM_PROJECT_PRESENTATION.pdf)
+
 1) Use-case of your project.
 2) Reference model of your project.
 3) Single slide interface documentation.
