@@ -5,11 +5,13 @@
 > *[Check existing forks to find the specific repository for your class.](../../network/members)*
 
 ## Introduction
-* 2 person teams, building an IoT system.
+This project is part of the IoT Engineering course.
+
+* 2-person teams, building an IoT system.
 * 32 hours of work per person, 1 prototype.
 * 10' presentation of the project at Demo Day.
-* Project source code and setup steps on GitHub.
-* Both team members are able to explain the project
+* Slides, source code and setup steps on GitHub.
+* Both team members are able to explain the project.
 
 ## Deliverables
 The following deliverables are mandatory.
