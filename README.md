@@ -37,5 +37,5 @@ Working end-to-end prototype, "device to cloud", 10' presentation and demo.
 
 <sup>*</sup>) Same or separate device, details are up to you.
 
-## Submitting results
-Commit and push local changes to your repository, before Demo Day 03.06.2019, 00:00.
+## Submission deadline
+Commit and push to (this) project repo before Demo Day 03.06.2019, 00:00.
