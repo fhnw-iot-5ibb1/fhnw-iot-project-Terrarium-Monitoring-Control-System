@@ -29,11 +29,11 @@ Source code, committed to (this) project repo.
 3) Single slide interface documentation.
 4) Issues you faced, how you solved them.
 
-### Live Demo
+### Live demo
 Working end-to-end prototype, "device to cloud", 10' presentation and demo.
 1) Sensor input on a IoT device triggers an event.
 2) The event or measurement shows up online, in an app or Web client.
 3) The event triggers actuator output on the same or a separate IoT device.
 
 ## Submission deadline
-Commit and push to (this) project repo before Demo Day _03.06.2019, 00:00_.
+Commit and push to (this) project repo before Demo Day, _03.06.2019, 00:00_.
