@@ -36,4 +36,4 @@ Working end-to-end prototype, "device to cloud", 10' presentation and demo.
 3) The event triggers actuator output on the same or a separate IoT device.
 
 ## Submission deadline
-Commit and push to (this) project repo before Demo Day 03.06.2019, 00:00.
+Commit and push to (this) project repo before Demo Day _03.06.2019, 00:00_.
