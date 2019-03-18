@@ -4,8 +4,12 @@
 > *Note: Do not work on this repository right away.*<br/>
 > *[Check existing forks to find the specific repository for your class.](../../network/members)*
 
+### Team members
+* MY_TEAM_PROJECT_PERSON_1
+* MY_TEAM_PROJECT_PERSON_2
+
 ## Introduction
-This project is part of the IoT Engineering course.
+This project is part of the [IoT Engineering](../../../fhnw-iot) course.
 
 * 2-person teams, building an IoT system.
 * 32 hours of work per person, 1 prototype.
