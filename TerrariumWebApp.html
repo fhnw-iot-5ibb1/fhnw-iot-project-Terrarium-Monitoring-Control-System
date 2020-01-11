@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>IoT Terrarium Webapp</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Lucida Sans Typewriter", "Lucida Console", monaco, "Bitstream Vera Sans Mono", monospace
+        }
+
+
+        .column {
+            float: left;
+            width: 33%;
+            padding: 0 10px;
+        }
+
+        .row {
+            margin: 0 -5px;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        @media screen and (max-width: 600px) {
+            .column {
+                width: 100%;
+                display: block;
+                margin-bottom: 20px;
+            }
+        }
+
+        .card {
+            height: 250px;
+            border-radius: 1em;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            padding: 16px;
+            text-align: center;
+            background-color: #f1f1f1;
+        }
+
+        .temp {
+            background: linear-gradient(-45deg, #23a6d5, #f23451);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        .humi {
+            background-color: skyblue;
+        }
+
+        .alarm {
+            background-color: greenyellow;
+        }
+
+        .bigText {
+            font-size: 2em;
+            font-style: italic;
+        }
+
+        p span {
+            font-weight: bold;
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <h6>Status: <span id="connect"></span></h6>
+    <div class="row">
+        <div class="column">
+            <div class="card temp">
+                <h3>Temperatur</h3>
+                <p class="bigText"><span id="mesTemp"></span> ℃ </p>
+                <p>Desired to <span id="desTemp"></span> ℃ </p>
+                <label name="tempInput">Change temperatur: </label>
+                <input id="tempInput" name="tempInput" step="1" min="0" max="80" type="range" oninput="setValueToDatabase('desiredTemp', this.value)">
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card humi">
+                <h3>Humidity</h3>
+                <p class="bigText"><span id="mesHumi"></span> % </p>
+                <p>Desired to <span id="desHumi"></span> % </p>
+                <label name="humiInput">Change humidity: </label>
+                <input id="humiInput" name="humiInput" step="1" min="1" max="100" type="range" oninput="setValueToDatabase('desiredHumidity', this.value)">
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card alarm">
+                <h3>Alarm</h3>
+                <p class="bigText"><span id="isAlarm"></span></p>
+                <p>Set Timer <span id="alarmTime"></span> minutes </p>
+
+                <label name="alarmInput">Set new Timer: </label>
+                <input id="alarmInput" name="alarmInput" step="1" min="1" max="60" type="range" oninput="setValueToDatabase('reactionAlarm', this.value)">
+            </div>
+        </div>
+
+    </div>
+    <script>
+        // web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCHu783KoogDZckmaC2k8X-M9LzcFs-h4w",
+            authDomain: "iotterrarium.firebaseapp.com",
+            databaseURL: "https://iotterrarium.firebaseio.com",
+            projectId: "iotterrarium",
+            storageBucket: "iotterrarium.appspot.com",
+            messagingSenderId: "674809182044",
+            appId: "1:674809182044:web:137ec5a5c664feef207399",
+            measurementId: "G-GV8FBF75CS"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // check connection to Firebase-Database
+        const connectedRef = firebase.database().ref(".info/connected");
+        connectedRef.on("value", function(snap) {
+            if (snap.val()) {
+                document.getElementById("connect").innerText = "connection established ";
+            } else {
+                document.getElementById("connect").innerHTML = "no connection to Database!";
+            }
+        });
+
+
+
+        const displayDataValue = (id, value) => document.getElementById(id).innerHTML = value;
+        const displayInputValue = (id, value) => document.getElementById(id).value = value;
+
+
+        const gotData = data => {
+            console.log("gotData: ")
+            console.log(data.val())
+            const {
+                alarm,
+                checkDistance,
+                desiredHumidity,
+                desiredTemp,
+                measuredHumidity,
+                measuredTemp,
+                reactionAlarm
+            } = data.val();
+
+            displayDataValue("mesTemp", measuredTemp);
+            displayDataValue("desTemp", desiredTemp);
+            displayInputValue("tempInput", desiredTemp);
+
+            displayDataValue("mesHumi", measuredHumidity);
+            displayDataValue("desHumi", desiredHumidity);
+            displayInputValue("humiInput", desiredHumidity);
+
+            displayDataValue("isAlarm", alarm);
+            displayDataValue("alarmTime", reactionAlarm);
+            displayInputValue("alarmInput", reactionAlarm);
+
+        }
+        const errData = err => {
+            console.log("errData: ")
+            console.log(err);
+        }
+
+        // referenc to the Firebase-Dabase
+        const ref = firebase.database().ref();
+
+        // get Data from Firebase-Database when Value changes
+        ref.on("value", gotData, errData);
+
+        // update Value to the Firebase-Database (so the ESP8266 can get it)
+        const setValueToDatabase = (attribute, value) => {
+            console.log(typeof parseInt(value, 10))
+            const obj = {
+                [attribute]: parseInt(value, 10)
+            }
+            ref.update(obj);
+        }
+
+    </script>
+</body>
+
+</html>
