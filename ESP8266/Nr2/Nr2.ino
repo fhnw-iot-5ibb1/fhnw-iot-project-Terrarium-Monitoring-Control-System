@@ -28,7 +28,7 @@ int desiredTemp = 0;
 
 #include <ChainableLED.h>
 #define NUM_LEDS 2
-ChainableLED leds(5, 4, NUM_LEDS);//defines the pin used on arduin
+ChainableLED leds(5, 4, NUM_LEDS);
 
 // rotatory sensor
 int analogPin = A0; 
@@ -47,7 +47,7 @@ void setup() {
     Serial.println("DHT11 start");
     dht.begin();
 
-    desiredTemp = (int) getTemp();
+    desiredTemp = getTemp();
 
     tm1637.init();
     tm1637.set(BRIGHT_TYPICAL);//BRIGHT_TYPICAL = 2,BRIGHT_DARKEST = 0,BRIGHTEST = 7;
@@ -74,7 +74,7 @@ void loop() {
   }
 
   setFirebaseIntValue("measuredTemp", measuredTemp);
-  setFirebaseIntValue("measuredHumidity", (int)getHumi());
+  setFirebaseIntValue("measuredHumidity", getHumi());
 
   desiredTemp = getFirebaseIntValue("desiredTemp");
   
@@ -84,12 +84,15 @@ void loop() {
 
 void setLEDLight(){
   if(desiredTemp > measuredTemp){
+		// red 
        leds.setColorRGB(0, 255, 0, 0);
        leds.setColorRGB(1, 255, 0, 0);
   } else if(desiredTemp < measuredTemp){
+		// blue
        leds.setColorRGB(0, 0, 0, 255);
-        leds.setColorRGB(1, 0, 0, 255);
+       leds.setColorRGB(1, 0, 0, 255);
   } else{
+		// white
        leds.setColorRGB(0, 255, 255, 255);
        leds.setColorRGB(1, 255, 255, 255);
   }
@@ -125,7 +128,7 @@ String getRotateValue() {
 
 
 void setDisplay(){
-    int mesTemp = (int) getTemp();
+    int mesTemp = getTemp();
     int mesTempOne = mesTemp / 10;
     int mesTempTwo = mesTemp % 10;
     measuredTemp = mesTemp;
@@ -149,7 +152,7 @@ float getTemp(){
     Serial.print(t);
     Serial.println(" *C");
   }
-  return t;
+  return (int) t;
 }
 
 float getHumi(){
@@ -161,7 +164,7 @@ float getHumi(){
     Serial.print(h);
     Serial.println(" %");
   }
-  return h;
+  return (int) h;
 }
 
 void setFirebaseIntValue(String type, int value){

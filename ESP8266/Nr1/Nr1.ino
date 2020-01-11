@@ -17,9 +17,10 @@ FirebaseData firebaseData;
 TM1637 tm1637(CLK, DIO);
 int measuredHumidity = 0;
 int desiredHumidity = 0;
-int checkDistance = 30; //default 30cm
+
 #include "Ultrasonic.h"
 Ultrasonic ultrasonic(16);
+int checkDistance = 20; //default 20cm
 
 // rotatory sensor
 int analogPin = A0;
@@ -29,18 +30,17 @@ int startTimeInMinute = 0;
 
 void setup() {
   Serial.begin(115200);
-
   delay(300);
 
   wifiConnect();
   delay(1000);
 
   initFirebase();
-  measuredHumidity = getFirebaseIntValue("measuredHumidity");
 
   tm1637.init();
   tm1637.set(BRIGHT_TYPICAL);//BRIGHT_TYPICAL = 2,BRIGHT_DARKEST = 0,BRIGHTEST = 7;  
-
+  tm1637.point(POINT_ON);
+  
   // Red-LED-Light (Alarm Light)
   // -------------- IMPORTANT ----------------
   // First after boot and the internet is connected
@@ -66,21 +66,20 @@ void loop() {
     initFirebase();
   }
 
-
   measuringDistanceAndAlarm();
-  desiredHumidity = getFirebaseIntValue("desiredHumidity");
 
   delay(300);
 }
 
 void measuringDistanceAndAlarm(){
+  int currentTimeInMinute = ( millis()/1000 ) / 60;
+  checkDistance = getFirebaseIntValue("checkDistance");
+
   int measuringChanges;
-  measuringChanges = (int) ultrasonic.MeasureInCentimeters(); // two measurements should keep an interval
+  measuringChanges = (int) ultrasonic.MeasureInCentimeters();
   Serial.print(measuringChanges);//0~400cm
   Serial.println(" cm");
   
-  checkDistance = getFirebaseIntValue("checkDistance");
-  int currentTimeInMinute = ( millis()/1000 ) / 60;
   if( measuringChanges < checkDistance ){
     Serial.println("-> Reset Timer ");
     startTimeInMinute = currentTimeInMinute;
@@ -89,46 +88,20 @@ void measuringDistanceAndAlarm(){
   int minutesWhenAlarm = getFirebaseIntValue("reactionAlarm");
   
   if( currentTimeInMinute - startTimeInMinute >= minutesWhenAlarm ) {
-      Serial.println(" ALAARM ");
       digitalWrite(2, HIGH);   
       setFirebaseStringValue("alarm", "on");
   } else {
       digitalWrite(2, LOW);
       setFirebaseStringValue("alarm", "off");
   }
+  
   Serial.print("Zeit: ");
   Serial.print(currentTimeInMinute);
   Serial.print("Minute seit keine veränderung: ");
   Serial.print(startTimeInMinute);
 }
 
-void setFirebaseStringValue(String type, String value) {
-  Serial.println("------------------------------------");
-  if (Firebase.setString(firebaseData, type, value)) {
-    Serial.println("PASSED");
-    Serial.println(firebaseData.dataPath());
-    Serial.println(firebaseData.intData());
-  } else {
-    Serial.println("FAILED");
-    Serial.println(firebaseData.errorReason());
-  }
-  Serial.println("------------------------------------");
-  Serial.println();
-}
 
-void setFirebaseIntValue(String type, int value) {
-  Serial.println("------------------------------------");
-  if (Firebase.setInt(firebaseData, type, value)) {
-    Serial.println("PASSED");
-    Serial.println(firebaseData.dataPath());
-    Serial.println(firebaseData.intData());
-  } else {
-    Serial.println("FAILED");
-    Serial.println(firebaseData.errorReason());
-  }
-  Serial.println("------------------------------------");
-  Serial.println();
-}
 
 void setDesiredHumidity() {
   if (rotatVal == "left") {
@@ -159,10 +132,11 @@ String getRotateValue() {
 }
 
 void setDisplay() {
+// query MeasuredHumidity-Data from the another ESP8266 via Firebase
   int mesHumi = getFirebaseIntValue("measuredHumidity");
+  measuredHumidity = mesHumi;
   int mesHumiOne = mesHumi / 10;
   int mesHumiTwo = mesHumi % 10;
-  measuredHumidity = mesHumi;
 
   int desHumi = desiredHumidity;
   int desHumiOne = desHumi / 10;
@@ -172,6 +146,35 @@ void setDisplay() {
   tm1637.display(1, desHumiTwo);
   tm1637.display(2, mesHumiOne);
   tm1637.display(3, mesHumiTwo);
+}
+
+
+void setFirebaseStringValue(String type, String value) {
+  Serial.println("------------------------------------");
+  if (Firebase.setString(firebaseData, type, value)) {
+    Serial.println("PASSED");
+    Serial.println(firebaseData.dataPath());
+    Serial.println(firebaseData.intData());
+  } else {
+    Serial.println("FAILED");
+    Serial.println(firebaseData.errorReason());
+  }
+  Serial.println("------------------------------------");
+  Serial.println();
+}
+
+void setFirebaseIntValue(String type, int value) {
+  Serial.println("------------------------------------");
+  if (Firebase.setInt(firebaseData, type, value)) {
+    Serial.println("PASSED");
+    Serial.println(firebaseData.dataPath());
+    Serial.println(firebaseData.intData());
+  } else {
+    Serial.println("FAILED");
+    Serial.println(firebaseData.errorReason());
+  }
+  Serial.println("------------------------------------");
+  Serial.println();
 }
 
 int getFirebaseIntValue(String datatype) {
