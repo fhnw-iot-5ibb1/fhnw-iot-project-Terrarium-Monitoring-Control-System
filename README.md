@@ -187,7 +187,8 @@ const firebaseConfig = {
 * Alarm für Bewegungslosigkeit kann gesetzt werden
 
 #### Reference model
-[Docs/Terrarium_Referenzmodell.png](Terrarium_Referenzmodell.png)
+<img src="Docs/Terrarium_Referenzmodell.png" width="640"/>
+
 
 #### Interface documentation.
 
@@ -197,7 +198,7 @@ Problem: Das Anschliessen von Display, LED, Rotary Angle und Temperatur bereitet
 
 Lösung: Wir Konnten das Problem mit Jumper Kabel lösen
 
-[Docs/ESP8266_DTH11_CABLE_ISSUE_FIX.png](ESP8266_DTH11_CABLE_ISSUE_FIX.png)
+<img src="Docs/ESP8266_DTH11_CABLE_ISSUE_FIX.png" width="640"/>
 
 ### Live demo
 Working end-to-end prototype, "device to cloud", part of your 10' presentation.
