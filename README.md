@@ -5,16 +5,16 @@ A temperatur, humidity and reaction monitoring system with configurable temperat
 Control the values with the Terrarium-Box and with the included [WebApplication](https://fhnw-iot-5ibb1.github.io/fhnw-iot-project-nadia-benjamin/TerrariumWebApp.html) which can be used on Mobile and Desktop.
 
 <img src="Docs/Terrarium_Device_Front.jpg" width="640"/>
-**Front
+**Front**
 
 <img src="Docs/Terrarium_Device_Side.jpg" width="640"/>
-**Side
+**Side**
 
 <img src="Docs/Terrarium_Device_Inside.jpg" width="640"/>
-**Inside
+**Inside**
 
 
-***This project is part of the [IoT Engineering](../../../fhnw-iot) course.
+***This project is part of the [IoT Engineering](../../../fhnw-iot) course.***
 
 ### Team members
 
