@@ -56,15 +56,16 @@ Feather Huzzah ESP8266
 ***HINT: ESP8266 Core SDK must be at least 2.4.1.
 
 #### Firebase  Software
- * Install Arduino json library: Install version 5.13.1 (and not the possible latest !!!) [Watch how do install Arduino-Json Library](https://youtu.be/GUTpaY1YaXo)
+ * Install Arduino json library: Install version 5.13.1 (and not the possible latest !!!) [Watch install video](https://youtu.be/GUTpaY1YaXo)
 * Install Firebase library: Download latest stable build [HERE](https://github.com/FirebaseExtended/firebase-arduino/releases/tag/v0.3) > unzip in "Documents\Arduino\libraries"
 **NOTE, There is a bug in "v0.3 Bi-directional streaming support" > update fingerprint**
  - Open file ***FirebaseHttpClient.h*** and replace fingerprint: *6F D0 9A 52 C0 E9 E4 CD A0 D3 02 A4 B7 A1 92 38 2D CA 2F 26*
 [CLICK HERE FOR INFO](https://github.com/FirebaseExtended/firebase-arduino/issues/373)
 
 #### Firebase Backend
-* [Create Firebase Project] (https://console.firebase.google.com)
-* Firebase, Project Rules: Database(Realtime Database) > rules 
+* [Create Firebase Project](https://console.firebase.google.com)
+* Create a * *Realtime Database* *
+* Edit Project Rules: Database(Realtime Database) > rules:
 ```
 {
   /* Visit https://firebase.google.com/docs/database/security to learn more about security rules. */
