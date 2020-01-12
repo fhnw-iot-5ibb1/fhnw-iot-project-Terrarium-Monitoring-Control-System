@@ -4,6 +4,9 @@
 A temperatur, humidity and reaction monitoring system with configurable temperature, humidity and alerts.
 Control the values with the Terrarium-Box and with the included [WebApplication](https://fhnw-iot-5ibb1.github.io/fhnw-iot-project-nadia-benjamin/TerrariumWebApp.html) which can be used on Mobile and Desktop.
 
+<img src="Docs/Terrarium_Device_Front.jpg" width="640"/>
+<img src="Docs/Terrarium_Device_Side.jpg" width="640"/>
+
 
 ## Introduction
 This project is part of the [IoT Engineering](../../../fhnw-iot) course.
@@ -21,13 +24,37 @@ This project is part of the [IoT Engineering](../../../fhnw-iot) course.
 
 ## Deliverables
 
+
 ### Source code
 
 [Arduino/ESP8266_DTH11_rgbLED_Device.ino](Arduino/ESP8266_DTH11_rgbLED_Device/ESP8266_DTH11_rgbLED_Device.ino)
 
 [Arduino/ESP8266_Ultrasonic_redLED_Device.ino](Arduino/ESP8266_Ultrasonic_redLED_Device/ESP8266_Ultrasonic_redLED_Device.ino)
 
-##### Setup software
+[TerrariumWebApp.html (JavaScript)](TerrariumWebApp.html)
+
+
+### Sensor/Actuator Device: DTH11 / RGB-LED 
+Feather Huzzah ESP8266
+
+<img src="Docs/ESP8266_DTH11_rgbLED_Device.jpg" width="640"/>
+
+##### Source code
+* [Arduino/ESP8266_DTH11_rgbLED_Device.ino](Arduino/ESP8266_DTH11_rgbLED_Device/ESP8266_DTH11_rgbLED_Device.ino)
+
+
+### Sensor/Actuator Device: Ultrasonic-Range / RED-LED / Alert 
+Feather Huzzah ESP8266
+
+<img src="Docs/ESP8266_Ultrasonic_redLED_Device.jpg" width="640"/>
+
+##### Source code
+* [Arduino/ESP8266_DTH11_rgbLED_Device.ino](Arduino/ESP8266_DTH11_rgbLED_Device/ESP8266_DTH11_rgbLED_Device.ino)
+
+
+
+### Same Setup software for both devices (Feather Huzzah ESP8266)
+
 * Set Wi-Fi credentials
 
     ```
