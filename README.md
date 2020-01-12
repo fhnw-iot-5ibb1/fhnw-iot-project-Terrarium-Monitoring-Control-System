@@ -202,9 +202,11 @@ const firebaseConfig = {
 
 #### Interface documentation.
 ```
-curl -X POST -d '{"temp" : "23", "humi" : "33"}' \ 'https://[PROJECT_ID].firebaseio.com/message_list.json'
-
+//GET
 curl 'https://[PROJECT_ID].firebaseio.com/users/username/name.json’
+
+//POST
+curl -X POST -d '{"temp" : "23", "humi" : "33"}' \ 'https://[PROJECT_ID].firebaseio.com/message_list.json'
 ```
 
 ### Live demo
