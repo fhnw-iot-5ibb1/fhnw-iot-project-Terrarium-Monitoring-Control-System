@@ -214,9 +214,43 @@ Working end-to-end prototype, "device to cloud", part of your 10' presentation.
 
 [https://TerrariumWebApp.html](https://fhnw-iot-5ibb1.github.io/fhnw-iot-project-nadia-benjamin/TerrariumWebApp.html)
 
-1) Sensor input on a IoT device triggers an event.
-2) The event or measurement shows up online, in an app or Web client.
-3) The event triggers actuator output on the same or on a separate IoT device.
+### Live demo
+> Working end-to-end prototype, "device to cloud", part of your 10' presentation.
+
+> 
+> 1) Sensor nimmt Werte entgegen
+
+* Sensor device
+    * Use case: Temperatur, Luftfeuchtigkeit und Bewegungen werden gemessen
+
+* Actuator device
+    * Use case: Display zeigt die aktuelle Temperatur und Luftfeuchtigkeit
+
+> 2) Die gemessenen Daten werden in der Web App angezeigt
+
+* Web browser
+    * Use case: Temperatur und Luftfeuchtigkeit werden angezeigt
+
+> 3) Die gewünschte Temperatur und Luftfeuchtigkeit können über die Web App gesetzt werden
+
+* Web browser
+    * Use case: Gewünschte Werte einstellen
+    
+> 4) Der Actuator gibt das Feedback zu den eingestellten Werten
+
+* Actuator Device
+    * Use case: Die LED Lampen leuchten entweder rot oder blau, je nach wärmeren oder kälteren Temperaturen
+    
+> 5) Über die Web App kann die Zeit für den "Alarm" eingestellt werden
+
+* Web Browser
+    * Use case: Die Zeit für den Alarm wenn sich das Tier nicht mehr bewegt, wird eingestellt
+    
+> 6) Der Actuator informiert
+
+* Actuator Device
+    * Use case: Wenn sich das Tier über den eingestellten Zeitraum nicht bewegt, leuchtet die rote LED Lampe auf
+
 
 ## Submission deadline
 Commit and push to (this) project repo before Demo Day, _13.01.2020, 00:00_.
