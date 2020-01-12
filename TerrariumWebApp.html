@@ -152,7 +152,7 @@
         const connectedRef = firebase.database().ref(".info/connected");
         connectedRef.on("value", function(snap) {
             if (snap.val()) {
-                document.getElementById("connect").innerText = "connection established ";
+                document.getElementById("connect").innerText = "connection to Database  established ";
             } else {
                 document.getElementById("connect").innerHTML = "no connection to Database!";
             }
@@ -160,13 +160,12 @@
 
 
 
+
+
         const displayDataValue = (id, value) => document.getElementById(id).innerHTML = value;
         const displayInputValue = (id, value) => document.getElementById(id).value = value;
 
-
         const gotData = data => {
-            console.log("gotData: ")
-            console.log(data.val())
             const {
                 alarm,
                 checkDistance,
@@ -174,7 +173,8 @@
                 desiredTemp,
                 measuredHumidity,
                 measuredTemp,
-                reactionAlarm
+                reactionAlarm,
+                connection
             } = data.val();
 
             displayDataValue("mesTemp", measuredTemp);
@@ -189,7 +189,9 @@
             displayDataValue("alarmTime", reactionAlarm);
             displayInputValue("alarmInput", reactionAlarm);
 
+            getConnectionsData(connection);
         }
+
         const errData = err => {
             console.log("errData: ")
             console.log(err);
@@ -203,12 +205,28 @@
 
         // update Value to the Firebase-Database (so the ESP8266 can get it)
         const setValueToDatabase = (attribute, value) => {
-            console.log(typeof parseInt(value, 10))
             const obj = {
                 [attribute]: parseInt(value, 10)
             }
             ref.update(obj);
         }
+
+
+        // Connections
+
+        const getConnectionsData = data => {
+            const con = data;
+            console.log(con);
+        }
+
+        // set connection to "true" when this client is connected
+        firebase.database().ref("connection").update({
+            "webApp": true
+        })
+
+        const presenceRef = firebase.database().ref("connection/webApp");
+        // Write a string when this client loses connection
+        presenceRef.onDisconnect().set(false);
 
     </script>
 </body>
