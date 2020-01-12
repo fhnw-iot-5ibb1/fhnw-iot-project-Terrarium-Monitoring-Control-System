@@ -191,7 +191,7 @@ const firebaseConfig = {
 * Motionlessness alarm can be set
 
 #### Reference model
-<img src="Docs/Terrarium_Referenzmodell.png" width="640"/>
+<img src="Docs/Terrarium_Referenzmodell.png" width="800"/>
 
 
 #### Interface documentation
