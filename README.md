@@ -39,12 +39,22 @@ Feather Huzzah ESP8266
 
 <img src="Docs/ESP8266_DTH11_rgbLED_Device.jpg" width="640"/>
 
+
 ##### Source code
 * [Arduino/ESP8266_DTH11_rgbLED_Device.ino](Arduino/ESP8266_DTH11_rgbLED_Device/ESP8266_DTH11_rgbLED_Device.ino)
 
+##### Setup hardware
+* The actuator device consists of a [ESP8266](https://github.com/tamberg/fhnw-iot/wiki/Feather-Huzzah-ESP8266), [Grove adapter](https://github.com/tamberg/fhnw-iot/wiki/Grove-Adapters#grove-shield-for-feather), [Chainable RGB LED
+](https://github.com/tamberg/fhnw-iot/wiki/Grove-Actuators#user-content-chainable-rgb-led), [rotary angle sensor](https://github.com/tamberg/fhnw-iot/wiki/Grove-Sensors#rotary-angle-sensor), [DHT11 sensor](https://github.com/tamberg/fhnw-iot/wiki/Grove-Sensors#temperature--humidity-sensor-dht11) and a [display](https://github.com/tamberg/fhnw-iot/wiki/Grove-Actuators#4-digit-display-tm1637).
+* Stack the ESP8266 on top of the Grove adapter.
+* Connect the Chainable RGB to LED to D2, rotary angle sensor to A0, DHT11 sensor to pin 13 (see Note!) and display to D5 of the Grove adapter.
 
-### Sensor/Actuator Device: Ultrasonic-Range / RED-LED / Alert 
-Feather Huzzah ESP8266
+Note: the connect the DTH11 sensor with the ESP8266 you need to redirect pin 16 and pin 15 using the blue / green jumper cable to Grove connector A2.
+<img src="Docs/ESP8266_DTH11_CABLE_ISSUE_FIX.png" width="360"/>
+**Special Thanks to Mr. Tamberg for his help
+
+
+### Sensor/Actuator Device: Ultrasonic-Range / RED-LED 
 
 <img src="Docs/ESP8266_Ultrasonic_redLED_Device.jpg" width="640"/>
 
