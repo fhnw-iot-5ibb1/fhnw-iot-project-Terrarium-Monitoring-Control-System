@@ -6,6 +6,7 @@ Control the values with the Terrarium-Box and with the included [WebApplication]
 
 <img src="Docs/Terrarium_Device_Front.jpg" width="640"/>
 <img src="Docs/Terrarium_Device_Side.jpg" width="640"/>
+<img src="Docs/Terrarium_Device_Inside.jpg" width="640"/>
 
 
 ## Introduction
@@ -200,12 +201,13 @@ const firebaseConfig = {
 <img src="Docs/Terrarium_Referenzmodell.png" width="640"/>
 
 
-#### Interface documentation.
+#### Interface documentation
+* Firebase API to read from the Realtime-Database
 ```
-//GET
 curl 'https://[PROJECT_ID].firebaseio.com/users/username/name.json’
-
-//POST
+```
+* Firebase API to write to the Realtime-Database
+```
 curl -X POST -d '{"temp" : "23", "humi" : "33"}' \ 'https://[PROJECT_ID].firebaseio.com/message_list.json'
 ```
 
