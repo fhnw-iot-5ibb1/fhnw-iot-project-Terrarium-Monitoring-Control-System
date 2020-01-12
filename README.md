@@ -220,38 +220,38 @@ Working end-to-end prototype, "device to cloud", part of your 10' presentation.
 > Working end-to-end prototype, "device to cloud", part of your 10' presentation.
 
 > 
-> 1) Sensor nimmt Werte entgegen
+#### 1) Sensor takes the values
 
 * Sensor device
-    * Use case: Temperatur, Luftfeuchtigkeit und Bewegungen werden gemessen
+    * Use case: Temperature, humidity and movements are measured
 
 * Actuator device
-    * Use case: Display zeigt die aktuelle Temperatur und Luftfeuchtigkeit
+    * Use case: The display shows the current temperature and humidity
 
-> 2) Die gemessenen Daten werden in der Web App angezeigt
-
-* Web browser
-    * Use case: Temperatur und Luftfeuchtigkeit werden angezeigt
-
-> 3) Die gewünschte Temperatur und Luftfeuchtigkeit können über die Web App gesetzt werden
+#### 2) The measured data are displayed in the Web App
 
 * Web browser
-    * Use case: Gewünschte Werte einstellen
+    * Use case: The temperature and humidity are displayed
+
+#### 3) The desired temperature and humidity can be set via the Web App
+
+* Web browser
+    * Use case: Set the desired values
     
-> 4) Der Actuator gibt das Feedback zu den eingestellten Werten
+#### 4) The actuator provides feedback on the set values
 
 * Actuator Device
-    * Use case: Die LED Lampen leuchten entweder rot oder blau, je nach wärmeren oder kälteren Temperaturen
+    * Use case: The LED lamps light up either red or blue, depending on the warmer or colder temperatures
     
-> 5) Über die Web App kann die Zeit für den "Alarm" eingestellt werden
+#### 5) The time for the "alarm" can be set via the Web App
 
 * Web Browser
-    * Use case: Die Zeit für den Alarm wenn sich das Tier nicht mehr bewegt, wird eingestellt
+    * Use case: The time for the alarm when the animal is no longer moving is set
     
-> 6) Der Actuator informiert
+#### 6) The actuator informs
 
 * Actuator Device
-    * Use case: Wenn sich das Tier über den eingestellten Zeitraum nicht bewegt, leuchtet die rote LED Lampe auf
+    * Use case: If the animal does not move for the set period, the red LED lamp lights up
 
 
 ## Submission deadline
