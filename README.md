@@ -5,16 +5,16 @@ A temperatur, humidity and reaction monitoring system with configurable temperat
 Control the values with the Terrarium-Box and with the included [WebApplication](https://fhnw-iot-5ibb1.github.io/fhnw-iot-project-nadia-benjamin/TerrariumWebApp.html) which can be used on Mobile and Desktop.
 
 <img src="Docs/Terrarium_Device_Front.jpg" width="640"/>
-* Front
+**Front
 
 <img src="Docs/Terrarium_Device_Side.jpg" width="640"/>
-* Side
+**Side
 
 <img src="Docs/Terrarium_Device_Inside.jpg" width="640"/>
-* Inside
+**Inside
 
 
-*This project is part of the [IoT Engineering](../../../fhnw-iot) course.
+***This project is part of the [IoT Engineering](../../../fhnw-iot) course.
 
 ### Team members
 
@@ -211,6 +211,7 @@ curl -X POST -d '{"temp" : "23", "humi" : "33"}' \ 'https://[PROJECT_ID].firebas
 
 [https://TerrariumWebApp.html](https://fhnw-iot-5ibb1.github.io/fhnw-iot-project-nadia-benjamin/TerrariumWebApp.html)
 
+
 #### 1) Sensor takes the values
 
 * Sensor device
@@ -245,5 +246,3 @@ curl -X POST -d '{"temp" : "23", "humi" : "33"}' \ 'https://[PROJECT_ID].firebas
     * Use case: If the animal does not move for the set period, the red LED lamp lights up
 
 
-## Submission deadline
-Commit and push to (this) project repo before Demo Day, _13.01.2020, 00:00_.
