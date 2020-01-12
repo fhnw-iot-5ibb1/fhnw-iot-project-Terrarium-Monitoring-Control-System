@@ -1,8 +1,12 @@
 # IoT Engineering
-## Project MY_TEAM_PROJECT_TITLE
+## Terrarium - Monitoring and Control System
 
-> *Note: Do not work on this repository right away.*<br/>
-> *[Create your copy or join a team by clicking this GitHub Classroom link](https://classroom.github.com/g/gALXMYRD).*
+A temperatur, humidity and reaction monitoring system with configurable temperature, humidity and alerts.
+Control the values with the Terrarium-Box and with the included [WebApplication](https://fhnw-iot-5ibb1.github.io/fhnw-iot-project-nadia-benjamin/TerrariumWebApp.html) which can be used on Mobile and Desktop.
+
+<img src="Docs/Terrarium_Device_Front.jpg" width="640"/>
+<img src="Docs/Terrarium_Device_Side.jpg" width="640"/>
+
 
 ## Introduction
 This project is part of the [IoT Engineering](../../../fhnw-iot) course.
@@ -15,19 +19,132 @@ This project is part of the [IoT Engineering](../../../fhnw-iot) course.
 
 ### Team members
 
-* [@BenjaminBrodwolf] (https://github.com/BenjaminBrodwolf) 
-* [@NadiaKramer] (https://github.com/nadiakramer) @MY_TEAM_PROJECT_GITHUB_USER_1, 
+* [Benjamin Brodwolf](https://github.com/BenjaminBrodwolf) 
+* [Nadia Kramer](https://github.com/nadiakramer)
 
 ## Deliverables
-The following deliverables are mandatory.
+
 
 ### Source code
 
-[Arduino/ESP8266_DTH11_rgbLED_Device/ESP8266_DTH11_rgbLED_Device.ino](Arduino/ESP8266_DTH11_rgbLED_Device.ino)
+[Arduino/ESP8266_DTH11_rgbLED_Device.ino](Arduino/ESP8266_DTH11_rgbLED_Device/ESP8266_DTH11_rgbLED_Device.ino)
 
-[Arduino/ESP8266_Ultrasonic_redLED_Device/ESP8266_DTH11_rgbLED_Device.ino](Arduino/ESP8266_Ultrasonic_redLED_Device.ino)
+[Arduino/ESP8266_Ultrasonic_redLED_Device.ino](Arduino/ESP8266_Ultrasonic_redLED_Device/ESP8266_Ultrasonic_redLED_Device.ino)
 
-##### Setup software
+[TerrariumWebApp.html (JavaScript)](TerrariumWebApp.html)
+
+
+### Sensor/Actuator Device: DTH11 / RGB-LED 
+Feather Huzzah ESP8266
+
+<img src="Docs/ESP8266_DTH11_rgbLED_Device.jpg" width="640"/>
+
+##### Source code
+* [Arduino/ESP8266_DTH11_rgbLED_Device.ino](Arduino/ESP8266_DTH11_rgbLED_Device/ESP8266_DTH11_rgbLED_Device.ino)
+
+
+### Sensor/Actuator Device: Ultrasonic-Range / RED-LED / Alert 
+Feather Huzzah ESP8266
+
+<img src="Docs/ESP8266_Ultrasonic_redLED_Device.jpg" width="640"/>
+
+##### Source code
+* [Arduino/ESP8266_DTH11_rgbLED_Device.ino](Arduino/ESP8266_DTH11_rgbLED_Device/ESP8266_DTH11_rgbLED_Device.ino)
+
+
+### Setup Firebase
+***HINT: ESP8266 Core SDK must be at least 2.4.1.
+
+#### Firebase  Software
+ * Install Arduino json library: Install version 5.13.1 (and not the possible latest !!!) [Watch install video](https://youtu.be/GUTpaY1YaXo)
+* Install Firebase library: Download latest stable build [HERE](https://github.com/FirebaseExtended/firebase-arduino/releases/tag/v0.3) > unzip in "Documents\Arduino\libraries"
+**NOTE, There is a bug in "v0.3 Bi-directional streaming support" > update fingerprint**
+ - Open file ***FirebaseHttpClient.h*** and replace fingerprint: *6F D0 9A 52 C0 E9 E4 CD A0 D3 02 A4 B7 A1 92 38 2D CA 2F 26*
+[CLICK HERE FOR INFO](https://github.com/FirebaseExtended/firebase-arduino/issues/373)
+
+#### Firebase Backend
+* [Create Firebase Project](https://console.firebase.google.com)
+* Create a * *Realtime Database* *
+* Edit Project Rules: Database(Realtime Database) > rules:
+```
+{
+  /* Visit https://firebase.google.com/docs/database/security to learn more about security rules. */
+  "rules": {
+    ".read": true,
+    ".write": true
+  }
+}
+```
+
+### Setup WebApp (Static-HTML)
+
+* In the HEAD:
+```
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
+```
+
+* To initialize Firebase in your WebApp, you need to provide your App's Firebase project configuration.
+```javascript
+const firebaseConfig = {
+  apiKey: "api-key",
+  authDomain: "project-id.firebaseapp.com",
+  databaseURL: "https://project-id.firebaseio.com",
+  projectId: "project-id",
+  storageBucket: "project-id.appspot.com",
+  messagingSenderId: "sender-id",
+  appId: "app-id",
+  measurementId: "G-measurement-id",
+};
+```
+
+* To GET and SET Data from/to Firebase-Realtime-Database
+```javascript
+          // Initialize Firebase
+          firebase.initializeApp(firebaseConfig);
+
+          // handl the recieved Data
+          const gotData = data => {
+            const {
+                alarm,
+                checkDistance,
+                desiredHumidity,
+                desiredTemp,
+                measuredHumidity,
+                measuredTemp,
+                reactionAlarm,
+                connection
+            } = data.val();
+
+            // ...
+        }
+
+        // error Handling
+        const errData = err => {
+            console.log("errData: " + err)
+        }
+
+        // referenc to the Firebase-Dabase
+        const ref = firebase.database().ref();
+
+        // get Data from Firebase-Database when Value changes
+        ref.on("value", gotData, error);
+
+        // update Value to the Firebase-Database (so the ESP8266 can get it)
+        const setValueToDatabase = (attribute, value) => {
+            const obj = {
+                [attribute]: parseInt(value, 10)
+            }
+            ref.update(obj);
+        }
+```
+
+### Same Setup software for both devices
+
 * Set Wi-Fi credentials
 
     ```
@@ -35,6 +152,12 @@ The following deliverables are mandatory.
     const char *password = "MY_PASSWORD";
     ```
     
+ * Set Firebase credentials
+
+    ```
+  TODO
+    ```
+      
     
 ... (adapt as required)
 
@@ -55,7 +178,7 @@ The following deliverables are mandatory.
 ### Live demo
 Working end-to-end prototype, "device to cloud", part of your 10' presentation.
 
-[https://fhnw-iot-5ibb1.github.io/fhnw-iot-project-nadia-benjamin/TerrariumWebApp.html](https://fhnw-iot-project-nadia-benjamin/TerrariumWebApp.html)
+[https://TerrariumWebApp.html](https://fhnw-iot-5ibb1.github.io/fhnw-iot-project-nadia-benjamin/TerrariumWebApp.html)
 
 1) Sensor input on a IoT device triggers an event.
 2) The event or measurement shows up online, in an app or Web client.
