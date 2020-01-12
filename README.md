@@ -186,15 +186,15 @@ const firebaseConfig = {
 ### Presentation
 4-slide presentation, PDF format, committed to (this) project repo.
 
-[MY_TEAM_PROJECT_PRESENTATION.pdf](MY_TEAM_PROJECT_PRESENTATION.pdf)
+[Terrarium_Presentation.pdf](MY_TEAM_PROJECT_PRESENTATION.pdf)
 
 #### Use-case
-* Misst Temperatur, Luftfeuchtigkeit und Bewegungen
-* Zeigt Temperatur und Luftfeuchtigkeit auf Display an
-* Gewünschte Temperatur und Luftfeuchtigkeit kann eingestellt werden
-*  Wärmt oder Kühlt das Terrarium ab (mit Lampen dargestellt)
-* Erhalt von Alarm, wenn sich das Tier eine gewisse Zeit nicht bewegt hat
-* Alarm für Bewegungslosigkeit kann gesetzt werden
+* Measures temperature, humidity and movements
+* Shows temperature and humidity on the display
+* Desired temperature and humidity can be set
+* Warms or cools the terrarium (shown with chainable LED)
+* Receive an alarm if the animal has not moved for a certain period
+* Motionlessness alarm can be set
 
 #### Reference model
 <img src="Docs/Terrarium_Referenzmodell.png" width="640"/>
@@ -202,13 +202,6 @@ const firebaseConfig = {
 
 #### Interface documentation.
 
-
-#### Issues
-Problem: Das Anschliessen von Display, LED, Rotary Angle und Temperatur bereitete Probleme
-
-Lösung: Wir Konnten das Problem mit Jumper Kabel lösen
-
-<img src="Docs/ESP8266_DTH11_CABLE_ISSUE_FIX.png" width="640"/>
 
 ### Live demo
 Working end-to-end prototype, "device to cloud", part of your 10' presentation.
