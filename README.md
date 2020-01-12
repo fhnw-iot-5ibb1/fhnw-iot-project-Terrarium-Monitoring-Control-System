@@ -50,8 +50,10 @@ Feather Huzzah ESP8266
 * Connect the Chainable RGB to LED to D2, rotary angle sensor to A0, DHT11 sensor to pin 13 (see Note!) and display to D5 of the Grove adapter.
 
 Note: the connect the DTH11 sensor with the ESP8266 you need to redirect pin 16 and pin 15 using the blue / green jumper cable to Grove connector A2.
+
 <img src="Docs/ESP8266_DTH11_CABLE_ISSUE_FIX.png" width="360"/>
-**Special Thanks to Mr. Tamberg for his help
+
+**Special Thanks to Mr. Tamberg for his help**
 
 
 ### Sensor/Actuator Device: Ultrasonic-Range / RED-LED 
