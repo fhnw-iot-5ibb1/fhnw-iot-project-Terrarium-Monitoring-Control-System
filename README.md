@@ -16,17 +16,16 @@ This project is part of the [IoT Engineering](../../../fhnw-iot) course.
 
 ### Team members
 
-* [@BenjaminBrodwolf] (https://github.com/BenjaminBrodwolf) 
-* [@NadiaKramer] (https://github.com/nadiakramer) @MY_TEAM_PROJECT_GITHUB_USER_1, 
+* [Benjamin Brodwolf](https://github.com/BenjaminBrodwolf) 
+* [Nadia Kramer](https://github.com/nadiakramer)
 
 ## Deliverables
-The following deliverables are mandatory.
 
 ### Source code
 
 [Arduino/ESP8266_DTH11_rgbLED_Device.ino](Arduino/ESP8266_DTH11_rgbLED_Device/ESP8266_DTH11_rgbLED_Device.ino)
 
-[Arduino/ESP8266_DTH11_rgbLED_Device.ino](Arduino/ESP8266_Ultrasonic_redLED_Device/ESP8266_Ultrasonic_redLED_Device.ino)
+[Arduino/ESP8266_Ultrasonic_redLED_Device.ino](Arduino/ESP8266_Ultrasonic_redLED_Device/ESP8266_Ultrasonic_redLED_Device.ino)
 
 ##### Setup software
 * Set Wi-Fi credentials
