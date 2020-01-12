@@ -49,7 +49,35 @@ Feather Huzzah ESP8266
 <img src="Docs/ESP8266_Ultrasonic_redLED_Device.jpg" width="640"/>
 
 ##### Source code
-* [Arduino/ESP8266_DTH11_rgbLED_Device.ino](Arduino/ESP8266_DTH11_rgbLED_Device/ESP8266_DTH11_rgbLED_Device.ino)
+* [Arduino/ESP8266_Ultrasonic_redLED_Device.ino](Arduino/ESP8266_Ultrasonic_redLED_Device/ESP8266_Ultrasonic_redLED_Device.ino)
+
+##### Setup hardware
+* The actuator device consists of a [ESP8266](https://github.com/tamberg/fhnw-iot/wiki/Feather-Huzzah-ESP8266), [Grove adapter](https://github.com/tamberg/fhnw-iot/wiki/Grove-Adapters#grove-shield-for-feather), [LED](https://github.com/tamberg/fhnw-iot/wiki/Grove-Actuators#led), [rotary angle sensor](https://github.com/tamberg/fhnw-iot/wiki/Grove-Sensors#rotary-angle-sensor), [Ultrasonic Ranger](https://github.com/tamberg/fhnw-iot/wiki/Grove-Sensors#user-content-ultrasonic-ranger) and a [display](https://github.com/tamberg/fhnw-iot/wiki/Grove-Actuators#4-digit-display-tm1637).
+* Stack the ESP8266 on top of the Grove adapter.
+* Connect the LED to D2 (see Note!), rotary angle sensor to A0, ultrasoni ranger to D3 and display to I2C_1 of the Grove adapter.
+
+Note: connect the LED adapter only after the reset and when the ESP8266 Wi-Fi connection is establishd.
+
+#### Same Setup for both devices
+
+* Set Wi-Fi credentials
+
+    ```
+    const char *ssid = "MY_SSID";
+    const char *password = "MY_PASSWORD";
+    ```
+    
+ * Set Firebase credentials
+
+    ```
+   //FirebaseESP8266.h must be included before ESP8266WiFi.h
+   #include <FirebaseArduino.h>
+ 
+   #define FIREBASE_HOST "?????????????.firebaseio.com"
+   #define FIREBASE_AUTH "AUTH KEY"
+    ```
+    
+
 
 
 ### Setup Firebase
@@ -79,7 +107,7 @@ Feather Huzzah ESP8266
 ### Setup WebApp (Static-HTML)
 
 * In the HEAD:
-```
+```html
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
 
@@ -143,27 +171,7 @@ const firebaseConfig = {
         }
 ```
 
-### Same Setup software for both devices
 
-* Set Wi-Fi credentials
-
-    ```
-    const char *ssid = "MY_SSID";
-    const char *password = "MY_PASSWORD";
-    ```
-    
- * Set Firebase credentials
-
-    ```
-  TODO
-    ```
-      
-    
-... (adapt as required)
-
-1) Embedded code / microcontroller firmware.
-2) Glue Code used on the gateway or "in the cloud".
-3) App or Web UI code, or IoT platform setup steps.
 
 ### Presentation
 4-slide presentation, PDF format, committed to (this) project repo.

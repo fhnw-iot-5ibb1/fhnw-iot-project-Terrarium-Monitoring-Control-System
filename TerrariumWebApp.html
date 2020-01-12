@@ -23,7 +23,6 @@
             font-family: "Lucida Sans Typewriter", "Lucida Console", monaco, "Bitstream Vera Sans Mono", monospace
         }
 
-
         .column {
             float: left;
             width: 33%;
@@ -57,18 +56,26 @@
             background-color: #f1f1f1;
         }
 
-        .temp {
-            background: linear-gradient(-45deg, #23a6d5, #f23451);
-            background-size: 400% 400%;
+        #temp {
+            background-size: 200% 200%;
             animation: gradientBG 15s ease infinite;
         }
 
+
         .humi {
-            background-color: skyblue;
+            background: linear-gradient(0deg, rgba(29, 248, 253, 1) 0%, rgba(69, 174, 252, 1) 46%, rgba(72, 58, 180, 1) 100%);
+            background-size: 200% 200%;
+            animation: gradientBG 10s ease infinite;
         }
 
-        .alarm {
+        #alarm {
             background-color: greenyellow;
+        }
+
+        .alert {
+            background: radial-gradient(circle, rgba(154, 3, 34, 1) 21%, rgba(217, 116, 116, 1) 56%);
+            background-size: 400% 400%;
+            animation: gradientBG 4s ease infinite;
         }
 
         .bigText {
@@ -102,7 +109,7 @@
     <h6>Status: <span id="connect"></span></h6>
     <div class="row">
         <div class="column">
-            <div class="card temp">
+            <div id="temp" class="card">
                 <h3>Temperatur</h3>
                 <p class="bigText"><span id="mesTemp"></span> ℃ </p>
                 <p>Desired to <span id="desTemp"></span> ℃ </p>
@@ -122,7 +129,7 @@
         </div>
 
         <div class="column">
-            <div class="card alarm">
+            <div id="alarm" class="card alert">
                 <h3>Alarm</h3>
                 <p class="bigText"><span id="isAlarm"></span></p>
                 <p>Set Timer <span id="alarmTime"></span> minutes </p>
@@ -145,6 +152,7 @@
             appId: "1:674809182044:web:137ec5a5c664feef207399",
             measurementId: "G-GV8FBF75CS"
         };
+
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
 
@@ -158,12 +166,16 @@
             }
         });
 
-
-
-
-
         const displayDataValue = (id, value) => document.getElementById(id).innerHTML = value;
         const displayInputValue = (id, value) => document.getElementById(id).value = value;
+
+        const setAlarm = val => val === "on" ?
+            document.getElementById("alarm").classList.add("alert") :
+            document.getElementById("alarm").classList.remove("alert");
+
+        const setTempBG = (desTemp, curTemp) => desTemp <= curTemp ?
+            document.getElementById("temp").style.background = "linear-gradient(-45deg, #0886b4, #b2d5fd)" :
+            document.getElementById("temp").style.background = "linear-gradient(-45deg, #c40303, #e87586)"
 
         const gotData = data => {
             const {
@@ -189,6 +201,9 @@
             displayDataValue("alarmTime", reactionAlarm);
             displayInputValue("alarmInput", reactionAlarm);
 
+            setTempBG(desiredTemp, measuredTemp);
+            setAlarm(alarm);
+
             getConnectionsData(connection);
         }
 
@@ -213,7 +228,6 @@
 
 
         // Connections
-
         const getConnectionsData = data => {
             const con = data;
             console.log(con);
