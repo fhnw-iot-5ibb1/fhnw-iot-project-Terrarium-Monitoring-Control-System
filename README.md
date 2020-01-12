@@ -79,7 +79,7 @@ Feather Huzzah ESP8266
 ### Setup WebApp (Static-HTML)
 
 * In the HEAD:
-```
+```html
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
 
@@ -143,7 +143,7 @@ const firebaseConfig = {
         }
 ```
 
-### Same Setup software for both devices
+### Same Setup for both devices
 
 * Set Wi-Fi credentials
 
@@ -155,15 +155,13 @@ const firebaseConfig = {
  * Set Firebase credentials
 
     ```
-  TODO
+   //FirebaseESP8266.h must be included before ESP8266WiFi.h
+   #include <FirebaseArduino.h>
+ 
+   #define FIREBASE_HOST "?????????????.firebaseio.com"
+   #define FIREBASE_AUTH "AUTH KEY"
     ```
-      
     
-... (adapt as required)
-
-1) Embedded code / microcontroller firmware.
-2) Glue Code used on the gateway or "in the cloud".
-3) App or Web UI code, or IoT platform setup steps.
 
 ### Presentation
 4-slide presentation, PDF format, committed to (this) project repo.
