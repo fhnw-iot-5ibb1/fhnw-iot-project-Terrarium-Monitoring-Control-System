@@ -170,10 +170,26 @@ const firebaseConfig = {
 
 [MY_TEAM_PROJECT_PRESENTATION.pdf](MY_TEAM_PROJECT_PRESENTATION.pdf)
 
-1) Use-case of your project.
-2) Reference model of your project.
-3) Single slide interface documentation.
-4) Issues you faced, how you solved them.
+#### Use-case
+* Misst Temperatur, Luftfeuchtigkeit und Bewegungen
+* Zeigt Temperatur und Luftfeuchtigkeit auf Display an
+* Gewünschte Temperatur und Luftfeuchtigkeit kann eingestellt werden
+*  Wärmt oder Kühlt das Terrarium ab (mit Lampen dargestellt)
+* Erhalt von Alarm, wenn sich das Tier eine gewisse Zeit nicht bewegt hat
+* Alarm für Bewegungslosigkeit kann gesetzt werden
+
+#### Reference model
+[Docs/Terrarium_Referenzmodell.png](Terrarium_Referenzmodell.png)
+
+#### Interface documentation.
+
+
+#### Issues
+Problem: Das Anschliessen von Display, LED, Rotary Angle und Temperatur bereitete Probleme
+
+Lösung: Wir Konnten das Problem mit Jumper Kabel lösen
+
+[Docs/ESP8266_DTH11_CABLE_ISSUE_FIX.png](ESP8266_DTH11_CABLE_ISSUE_FIX.png)
 
 ### Live demo
 Working end-to-end prototype, "device to cloud", part of your 10' presentation.
