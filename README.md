@@ -23,9 +23,9 @@ The following deliverables are mandatory.
 
 ### Source code
 
-[Arduino/ESP8266_DTH11_rgbLED_Device/ESP8266_DTH11_rgbLED_Device.ino](Arduino/ESP8266_DTH11_rgbLED_Device.ino)
+[Arduino/ESP8266_DTH11_rgbLED_Device.ino](Arduino/ESP8266_DTH11_rgbLED_Device/ESP8266_DTH11_rgbLED_Device.ino)
 
-[Arduino/ESP8266_Ultrasonic_redLED_Device/ESP8266_DTH11_rgbLED_Device.ino](Arduino/ESP8266_Ultrasonic_redLED_Device.ino)
+[Arduino/ESP8266_DTH11_rgbLED_Device.ino](Arduino/ESP8266_Ultrasonic_redLED_Device/ESP8266_Ultrasonic_redLED_Device.ino)
 
 ##### Setup software
 * Set Wi-Fi credentials
@@ -35,6 +35,12 @@ The following deliverables are mandatory.
     const char *password = "MY_PASSWORD";
     ```
     
+ * Set Firebase credentials
+
+    ```
+  TODO
+    ```
+      
     
 ... (adapt as required)
 
