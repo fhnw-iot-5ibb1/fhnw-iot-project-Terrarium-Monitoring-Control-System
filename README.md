@@ -186,7 +186,7 @@ const firebaseConfig = {
 ### Presentation
 4-slide presentation, PDF format, committed to (this) project repo.
 
-[Terrarium_Presentation.pdf](MY_TEAM_PROJECT_PRESENTATION.pdf)
+[Docs/Terrarium_Presentation.pdf](Terrarium_Presentation.pdf)
 
 #### Use-case
 * Measures temperature, humidity and movements
