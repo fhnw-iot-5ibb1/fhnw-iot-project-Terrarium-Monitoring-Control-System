@@ -201,7 +201,9 @@ const firebaseConfig = {
 
 
 #### Interface documentation.
-
+`
+curl -X POST -d '{"temp" : "23", "humi" : "33"}' \ 'https://[PROJECT_ID].firebaseio.com/message_list.json'
+`
 
 ### Live demo
 Working end-to-end prototype, "device to cloud", part of your 10' presentation.
