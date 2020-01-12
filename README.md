@@ -185,8 +185,6 @@ const firebaseConfig = {
 
 
 ### Presentation
-4-slide presentation, PDF format, committed to (this) project repo.
-
 [Docs/Terrarium_Presentation.pdf](Docs/Terrarium_Presentation.pdf)
 
 #### Use-case
