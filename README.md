@@ -217,9 +217,7 @@ Working end-to-end prototype, "device to cloud", part of your 10' presentation.
 [https://TerrariumWebApp.html](https://fhnw-iot-5ibb1.github.io/fhnw-iot-project-nadia-benjamin/TerrariumWebApp.html)
 
 ### Live demo
-> Working end-to-end prototype, "device to cloud", part of your 10' presentation.
 
-> 
 #### 1) Sensor takes the values
 
 * Sensor device
