@@ -35,7 +35,6 @@ This project is part of the [IoT Engineering](../../../fhnw-iot) course.
 
 
 ### Sensor/Actuator Device: DTH11 / RGB-LED 
-Feather Huzzah ESP8266
 
 <img src="Docs/ESP8266_DTH11_rgbLED_Device.jpg" width="640"/>
 
@@ -53,7 +52,7 @@ Note: the connect the DTH11 sensor with the ESP8266 you need to redirect pin 16 
 
 <img src="Docs/ESP8266_DTH11_CABLE_ISSUE_FIX.png" width="360"/>
 
-**Special Thanks to Mr. Tamberg for his help**
+**Special Thanks to Mr.Amberg [(@tamberg)](https://github.com/tamberg) for his help to archieve this fix**
 
 
 ### Sensor/Actuator Device: Ultrasonic-Range / RED-LED 
@@ -91,9 +90,8 @@ Note: connect the LED adapter only after the reset and when the ESP8266 Wi-Fi co
     
 
 
-
 ### Setup Firebase
-***HINT: ESP8266 Core SDK must be at least 2.4.1.
+***HINT: ESP8266 Core SDK must be at least 2.4.1.***
 
 #### Firebase  Software
  * Install Arduino json library: Install version 5.13.1 (and not the possible latest !!!) [Watch install video](https://youtu.be/GUTpaY1YaXo)
