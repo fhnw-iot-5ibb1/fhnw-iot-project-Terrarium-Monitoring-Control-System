@@ -2,7 +2,7 @@
 ## Terrarium - Monitoring and Control System
 
 A temperatur, humidity and reaction monitoring system with configurable temperature, humidity and alerts.
-Control the values with the Terrarium-Box and with the included [WebApplication](https://fhnw-iot-5ibb1.github.io/fhnw-iot-project-nadia-benjamin/TerrariumWebApp.html) which can be used on Mobile and Desktop.
+Control the values with the Terrarium-Box and with the included [WebApplication](https://fhnw-iot-5ibb1.github.io/fhnw-iot-project-Terrarium-Monitoring-Control-System/TerrariumWebApp.html) which can be used on Mobile and Desktop.
 
 <img src="Docs/Terrarium_Device_Front.jpg" width="640"/>
 
@@ -206,7 +206,7 @@ curl -X POST -d '{"temp" : "23", "humi" : "33"}' \ 'https://[PROJECT_ID].firebas
 
 ### Live demo
 
-[https://TerrariumWebApp.html](https://fhnw-iot-5ibb1.github.io/fhnw-iot-project-nadia-benjamin/TerrariumWebApp.html)
+[https://TerrariumWebApp.html](https://fhnw-iot-5ibb1.github.io/fhnw-iot-project-Terrarium-Monitoring-Control-System/TerrariumWebApp.html)
 
 
 #### 1) Sensor takes the values
